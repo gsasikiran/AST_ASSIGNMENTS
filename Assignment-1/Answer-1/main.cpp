@@ -31,6 +31,7 @@ void get_number_stats(vector<int> &input_list, vector<double> &output_list)
 
     float variance = standard_deviation/ float(input_list.size());
 
+    // The outputs are stored in the following order :-
     output_list.push_back(sum);
     output_list.push_back(product);
     output_list.push_back(average);
@@ -40,6 +41,7 @@ void get_number_stats(vector<int> &input_list, vector<double> &output_list)
     cout<<"Product of the numbers:"<<product<<endl;
     cout<<"Average of all numbers :"<<average<<endl;
     cout<<"Variance of numbers  :"<<variance<<endl;
+    cout<<endl;
 }
 
 
@@ -65,10 +67,10 @@ TEST_CASE()
         vector<double> output_list;
         get_number_stats(number_list,output_list);
 
-        REQUIRE( check_float_equal(output_list[0] , 100) == true);
-        REQUIRE( check_float_equal(output_list[1] , 100) == true);
-        REQUIRE( check_float_equal(output_list[2] , 100) == true);
-        REQUIRE( check_float_equal(output_list[3] , 100) == true);
+        REQUIRE( check_float_equal(output_list[0] , 36) == true);
+        REQUIRE( check_float_equal(output_list[1] , 40320) == true);
+        REQUIRE( check_float_equal(output_list[2] , 4) == true);
+        REQUIRE( check_float_equal(output_list[3] , 0.5) == true);
 
     }
 
@@ -78,10 +80,10 @@ TEST_CASE()
         vector<double> output_list;
         get_number_stats(number_list,output_list);
 
-        REQUIRE( check_float_equal(output_list[0] , 100) == true);
-        REQUIRE( check_float_equal(output_list[1] , 100) == true);
-        REQUIRE( check_float_equal(output_list[2] , 100) == true);
-        REQUIRE( check_float_equal(output_list[3] , 100) == true);
+        REQUIRE( check_float_equal(output_list[0] , 6) == true);
+        REQUIRE( check_float_equal(output_list[1] , 6) == true);
+        REQUIRE( check_float_equal(output_list[2] , 2) == true);
+        REQUIRE( check_float_equal(output_list[3] , 0.666) == true);
     }
 
     SECTION( "Test 3" )
@@ -93,7 +95,7 @@ TEST_CASE()
         REQUIRE( check_float_equal(output_list[0] , 0) == true);
         REQUIRE( check_float_equal(output_list[1] , 0) == true);
         REQUIRE( check_float_equal(output_list[2] , 0) == true);
-        REQUIRE( check_float_equal(output_list[3] , 0) == true);
+        REQUIRE( check_float_equal(output_list[2] , 0) == true);
     }
 
 
