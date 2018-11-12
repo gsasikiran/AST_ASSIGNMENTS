@@ -1,3 +1,6 @@
+#define CATCH_CONFIG_MAIN
+#include "../catch.hpp"
+
 #include <iostream>
 #include <typeinfo>
 #include <cmath>
@@ -60,38 +63,83 @@ void pretty_print(vector<single_result_vector> & input_result_vectors)
     }
 }
 
-
-int main()
+TEST_CASE()
 {
 
+<<<<<<< HEAD
+    SECTION( "Running all the six functions to calculate the values" )
+    {
+        vector<single_result_vector> result_vectors;
+=======
     // When printing the numbers which are biger that the max value that can be stored
     // by the compiler it leads to "integer overflow". Garbage values or unexpected values
     // are given as output and it poses security risks in the software.
 
     vector<single_result_vector> result_vectors;
+>>>>>>> 6f8b556ca13bed04dbd5acbd6a695094d80827d1
 
-    single_result_vector function_1_results = iterate_for_function(function_1);
-    result_vectors.push_back(function_1_results);
+        single_result_vector function_1_results = iterate_for_function(function_1);
+        result_vectors.push_back(function_1_results);
+        REQUIRE( function_1_results.size() == 100 );
 
-    single_result_vector function_2_results = iterate_for_function(function_2);
-    result_vectors.push_back(function_2_results);
+        single_result_vector function_2_results = iterate_for_function(function_2);
+        result_vectors.push_back(function_2_results);
+        REQUIRE( function_2_results.size() == 100 );
 
-    single_result_vector function_3_results = iterate_for_function(function_3);
-    result_vectors.push_back(function_3_results);
+        single_result_vector function_3_results = iterate_for_function(function_3);
+        result_vectors.push_back(function_3_results);
+        REQUIRE( function_3_results.size() == 100 );
 
-    single_result_vector function_4_results = iterate_for_function(function_4);
-    result_vectors.push_back(function_4_results);
+        single_result_vector function_4_results = iterate_for_function(function_4);
+        result_vectors.push_back(function_4_results);
+        REQUIRE( function_4_results.size() == 100 );
 
-    single_result_vector function_5_results = iterate_for_function(function_5);
-    result_vectors.push_back(function_5_results);
+        single_result_vector function_5_results = iterate_for_function(function_5);
+        result_vectors.push_back(function_5_results);
+        REQUIRE( function_5_results.size() == 100 );
 
-    single_result_vector function_6_results = iterate_for_function(function_6);
-    result_vectors.push_back(function_6_results);
+        single_result_vector function_6_results = iterate_for_function(function_6);
+        result_vectors.push_back(function_6_results);
+        REQUIRE( function_6_results.size() == 100 );
 
-    pretty_print(result_vectors);
+        SECTION( "Printing the results from all the six results" )
+        {
+            REQUIRE( result_vectors.size() == 6 );
+            pretty_print(result_vectors);
+        }
+    }
 
 
-    return 0;
 }
+
+
+//int main()
+//{
+
+//    vector<single_result_vector> result_vectors;
+
+//    single_result_vector function_1_results = iterate_for_function(function_1);
+//    result_vectors.push_back(function_1_results);
+
+//    single_result_vector function_2_results = iterate_for_function(function_2);
+//    result_vectors.push_back(function_2_results);
+
+//    single_result_vector function_3_results = iterate_for_function(function_3);
+//    result_vectors.push_back(function_3_results);
+
+//    single_result_vector function_4_results = iterate_for_function(function_4);
+//    result_vectors.push_back(function_4_results);
+
+//    single_result_vector function_5_results = iterate_for_function(function_5);
+//    result_vectors.push_back(function_5_results);
+
+//    single_result_vector function_6_results = iterate_for_function(function_6);
+//    result_vectors.push_back(function_6_results);
+
+//    pretty_print(result_vectors);
+
+
+//    return 0;
+//}
 
 
