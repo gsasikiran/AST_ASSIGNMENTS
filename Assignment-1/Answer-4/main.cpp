@@ -11,15 +11,23 @@ typedef long double bignumber;
 
 const bignumber BIG_PI = 3.14159265358;
 
+/*
+ * Function to find the circumference of the circle
+ * give the radius and the PI value
+ */
 bignumber find_cicumference(int radius , bignumber pi)
 {
     return pi * pow(radius,2);
 }
 
+/*
+ * Gives the PI output given the precision digits
+ */
 bignumber get_float_precision(double precision)
 {
     return (floor((BIG_PI * pow(10, precision) + 0.5)) / pow(10, precision));
 }
+
 
 int main()
 {
