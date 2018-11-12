@@ -8,11 +8,15 @@
 
 using namespace std;
 
+// Seting typedef for commonly used functions
 typedef long long unsigned int longint;
 typedef longint(*functionPtr)(longint);
 typedef vector<longint> single_result_vector;
 
 
+/*
+ * Functions for different math equations
+ */
 longint function_1(longint val){ return 2*val; }
 
 longint function_2(longint val){ return pow(val,0.5); }
@@ -26,7 +30,9 @@ longint function_5(longint val){ return pow(2,1/float(val)); }
 longint function_6(longint val){ return exp(val);  }
 
 
-// Function that takes in an function pointer and runs for range 0-100 input
+/*
+ *  Function that takes in an function pointer and runs for range 0-100 input
+ */
 single_result_vector iterate_for_function(functionPtr input_fn)
 {
     single_result_vector function_results;
@@ -39,7 +45,9 @@ single_result_vector iterate_for_function(functionPtr input_fn)
     return function_results;
 }
 
-// Prints the values as a columns
+/*
+ * Prints the vector into formatted columns
+ */
 void pretty_print(vector<single_result_vector> & input_result_vectors)
 {
     for(long long int i = 1 ; i < 100 ; i++)
@@ -55,6 +63,10 @@ void pretty_print(vector<single_result_vector> & input_result_vectors)
 
 int main()
 {
+
+    // When printing the numbers which are biger that the max value that can be stored
+    // by the compiler it leads to "integer overflow". Garbage values or unexpected values
+    // are given as output and it poses security risks in the software.
 
     vector<single_result_vector> result_vectors;
 
