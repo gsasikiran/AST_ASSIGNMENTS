@@ -66,17 +66,15 @@ void pretty_print(vector<single_result_vector> & input_result_vectors)
 TEST_CASE()
 {
 
-<<<<<<< HEAD
+
     SECTION( "Running all the six functions to calculate the values" )
     {
-        vector<single_result_vector> result_vectors;
-=======
-    // When printing the numbers which are biger that the max value that can be stored
-    // by the compiler it leads to "integer overflow". Garbage values or unexpected values
-    // are given as output and it poses security risks in the software.
 
-    vector<single_result_vector> result_vectors;
->>>>>>> 6f8b556ca13bed04dbd5acbd6a695094d80827d1
+        // When printing the numbers which are biger that the max value that can be stored
+        // by the compiler it leads to "integer overflow". Garbage values or unexpected values
+        // are given as output and it poses security risks in the software.
+
+        vector<single_result_vector> result_vectors;
 
         single_result_vector function_1_results = iterate_for_function(function_1);
         result_vectors.push_back(function_1_results);
