@@ -5,5 +5,5 @@ set (CMAKE_CXX_STANDARD 11)
 set(TEST_INCLUDE_PATH "../catch.hpp")
 include_directories(${TEST_INCLUDE_PATH})
 
-project(Answer-1)
+project(Answer-6)
 add_executable(${PROJECT_NAME} "main.cpp")

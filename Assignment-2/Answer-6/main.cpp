@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <iterator>
+#include <cmath>
 
 /* References
  * [1]https://stackoverflow.com/questions/686353/c-random-float-number-generation
@@ -11,55 +12,61 @@
 using namespace std;
 
 
-double get_sum(vector<double> &input)
+double get_sum(const vector<double> &input)
 {
     double output = std::accumulate(input.begin(), input.end(), 0);
     return output;
 }
 
-double get_product(vector<double> &input)
+double get_product(const vector<double> &input)
 {
     double output = std::accumulate(input.begin(), input.end(), 1, std::multiplies<int>()) ;
     return output;
 }
 
-double get_max(vector<double> &input)
+double get_max(const vector<double> &input)
 {
     double output = *std::max_element(input.begin(), input.end()) ; ;
     return output;
 }
 
-double get_min(vector<double> &input)
+double get_min(const vector<double> &input)
 {
     double output = *std::min_element(input.begin(), input.end()) ;
     return output;
 }
 
-double get_average(vector<double> &input)
+double get_average(const vector<double> &input)
 {
     double sum = std::accumulate(input.begin(), input.end(), 0);
     double output = sum / input.size() ;
     return output;
 }
 
-double get_variance(vector<double> &input)
+double get_variance(const vector<double> &input)
 {
     double output = 0.0 ;
-    for(auto item : input)
-    {
+    double average = get_average(input);
 
+    double standard_deviation = 0;
+    for(double number : input)
+    {
+        double val = pow((number - average),2);
+        standard_deviation += val;
     }
+
+    output = standard_deviation/ double(input.size());
+
     return output;
 }
 
 
-vector<double> get_random_doubles(int n)
+vector<double> get_random_doubles(const int n)
 {
-    vector<double>output;
+    vector<double> output;
     for(int i = 0 ; i < n  ; i++)
     {
         double random_double = static_cast <double> (rand()) / (static_cast <double> (RAND_MAX/10000));
-        cout << random_double <<endl;
         output.push_back(random_double);
     }
     return output;
@@ -68,7 +75,7 @@ vector<double> get_random_doubles(int n)
 
 int main()
 {
-    int n1 = 0 ;
+    int n1 = 100 ;
     int n2 = 0 ;
     int n3 = 0 ;
 
