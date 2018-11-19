@@ -1,5 +1,7 @@
 ﻿#define CATCH_CONFIG_MAIN
 #include "../catch.hpp"
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,7 +10,6 @@
 
 /* References
  * [1]https://stackoverflow.com/questions/686353/c-random-float-number-generation
- * [2]
  */
 
 using namespace std;
@@ -109,21 +110,29 @@ TEST_CASE()
 
     cout<<"Give the value of n1"<<endl;
     cin>>n1;
+
     cout<<"Give the value of n2"<<endl;
     cin>>n2;
+
     cout<<"Give the last value also"<<endl;
     cin>>n3;
+
+    // Test to check if 'n1' is within the required range
     SECTION("Test 1")
     {
         REQUIRE((n1<100000 && n1>1) == true);
         REQUIRE((n2<n3) == true);
      }
+
+    // Test to check if size of vector output is correct
     SECTION("Test 2")
     {
         int output_length;
         output_length = get_random_doubles(n1).size();
         REQUIRE((n1 == output_length) == true);
     }
+
+    // Test to check if results are correct
     SECTION("Test 3")
     {
         vector<double> number_list = {1.3,5.89,6.24,1.43,2.25};
