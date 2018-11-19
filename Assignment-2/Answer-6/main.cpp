@@ -97,6 +97,7 @@ TEST_CASE()
     int n1;
     int n2;
     int n3;
+
     cout<<"Give the value of n1"<<endl;
     cin>>n1;
     cout<<"Give the value of n2"<<endl;
@@ -105,10 +106,17 @@ TEST_CASE()
     cin>>n3;
     SECTION("Test 1")
     {
-        if (1<n1<100000 == true && n2 < n3 == true )
-        {
-            cout<<"Test 1 passed"<<endl;
-        }
-
+        REQUIRE((n1<100000 && n1>1) == true);
+        REQUIRE((n2<n3) == true);
      }
+    SECTION("Test 2")
+    {
+        int output_length;
+        output_length = get_random_doubles(n1).size();
+        REQUIRE((n1 == output_length) == true);
+    }
+    SECTION("Test 3")
+    {
+
+    }
 }
