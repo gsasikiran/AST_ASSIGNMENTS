@@ -1,4 +1,6 @@
-﻿#include <iostream>
+﻿#define CATCH_CONFIG_MAIN
+#include "../catch.hpp"
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <iterator>
@@ -71,7 +73,15 @@ vector<double> get_random_doubles(const int n)
     return output;
 }
 
-
+bool check_float_equal(double in_1 ,double in_2 )
+{
+    if((in_1 - in_2) < 0.001)
+    {
+        return true;
+    }
+    return false;
+}
+/*
 int main()
 {
     int n1 = 100 ;
@@ -86,4 +96,43 @@ int main()
     double result_min = get_min(double_list);
     double result_average = get_average(double_list);
     double result_variance = get_variance(double_list);
+}
+*/
+
+
+TEST_CASE()
+{
+    // initializing the
+    int n1;
+    int n2;
+    int n3;
+
+    cout<<"Give the value of n1"<<endl;
+    cin>>n1;
+    cout<<"Give the value of n2"<<endl;
+    cin>>n2;
+    cout<<"Give the last value also"<<endl;
+    cin>>n3;
+    SECTION("Test 1")
+    {
+        REQUIRE((n1<100000 && n1>1) == true);
+        REQUIRE((n2<n3) == true);
+     }
+    SECTION("Test 2")
+    {
+        int output_length;
+        output_length = get_random_doubles(n1).size();
+        REQUIRE((n1 == output_length) == true);
+    }
+    SECTION("Test 3")
+    {
+        vector<double> number_list = {1.3,5.89,6.24,1.43,2.25};
+
+
+        REQUIRE(check_float_equal(get_sum(number_list),17.11));
+        REQUIRE(check_float_equal(get_product(number_list),153.731));
+        REQUIRE(check_float_equal(get_average(number_list),3.422));
+        REQUIRE(check_float_equal(get_min(number_list),1.3));
+        REQUIRE(check_float_equal(get_sum(number_list),6.24));
+     }
 }
