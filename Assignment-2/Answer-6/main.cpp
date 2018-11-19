@@ -74,6 +74,14 @@ vector<double> get_random_doubles(const int n)
     return output;
 }
 
+bool check_float_equal(double in_1 ,double in_2 )
+{
+    if((in_1 - in_2) < 0.001)
+    {
+        return true;
+    }
+    return false;
+}
 /*
 int main()
 {
@@ -92,8 +100,10 @@ int main()
 }
 */
 
+
 TEST_CASE()
 {
+    // initializing the
     int n1;
     int n2;
     int n3;
@@ -117,6 +127,13 @@ TEST_CASE()
     }
     SECTION("Test 3")
     {
+        vector<double> number_list = {1.3,5.89,6.24,1.43,2.25};
 
-    }
+
+        REQUIRE(check_float_equal(get_sum(number_list),17.11));
+        REQUIRE(check_float_equal(get_product(number_list),153.731));
+        REQUIRE(check_float_equal(get_average(number_list),3.422));
+        REQUIRE(check_float_equal(get_min(number_list),1.3));
+        REQUIRE(check_float_equal(get_sum(number_list),6.24));
+     }
 }
