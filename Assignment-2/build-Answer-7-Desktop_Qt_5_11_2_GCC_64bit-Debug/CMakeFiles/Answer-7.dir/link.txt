@@ -1,0 +1,1 @@
+/usr/bin/g++   -g   CMakeFiles/Answer-7.dir/solver.cpp.o CMakeFiles/Answer-7.dir/main.cpp.o  -o Answer-7 -rdynamic 
