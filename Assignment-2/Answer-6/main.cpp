@@ -11,7 +11,6 @@
 
 using namespace std;
 
-
 double get_sum(const vector<double> &input)
 {
     double output = std::accumulate(input.begin(), input.end(), 0);
