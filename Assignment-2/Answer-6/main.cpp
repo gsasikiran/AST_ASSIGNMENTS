@@ -1,4 +1,6 @@
-﻿#include <iostream>
+﻿#define CATCH_CONFIG_MAIN
+#include "../catch.hpp"
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <iterator>
@@ -72,7 +74,7 @@ vector<double> get_random_doubles(const int n)
     return output;
 }
 
-
+/*
 int main()
 {
     int n1 = 100 ;
@@ -87,4 +89,26 @@ int main()
     double result_min = get_min(double_list);
     double result_average = get_average(double_list);
     double result_variance = get_variance(double_list);
+}
+*/
+
+TEST_CASE()
+{
+    int n1;
+    int n2;
+    int n3;
+    cout<<"Give the value of n1"<<endl;
+    cin>>n1;
+    cout<<"Give the value of n2"<<endl;
+    cin>>n2;
+    cout<<"Give the last value also"<<endl;
+    cin>>n3;
+    SECTION("Test 1")
+    {
+        if (1<n1<100000 == true && n2 < n3 == true )
+        {
+            cout<<"Test 1 passed"<<endl;
+        }
+
+     }
 }
