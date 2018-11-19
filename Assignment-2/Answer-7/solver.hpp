@@ -1,10 +1,9 @@
 #pragma once
 
 #include <vector>
+#include <iostream>
 
 using namespace std;
-
-
 
 typedef  long double ldouble;
 
